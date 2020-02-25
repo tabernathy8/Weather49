@@ -1,0 +1,330 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 29, 2019, 11:51:44 AM
+    Author     : Evan
+*/
+html,body {
+    height: 100%;
+}
+body{
+    background-color: black;
+    font-family: "Open Sans";
+    margin: 0;
+    padding: 0;
+}
+/* Add a black background color to the top navigation bar */
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: black;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav form {
+  float: left;
+  display: block;
+  color: whitesmoke;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav form:hover {
+  background-color: black;
+  color: gray;
+}
+.topnav form input{
+    font-family: "Open Sans";
+}
+
+/* Add an active class to highlight the current page */
+.topnav form.active {
+  background-color: black;
+  color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav form:not(:first-child) {display: none;}
+  .topnav form.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive form.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive form {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+
+
+
+
+.nav {
+    font-family: "Open Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+    display: flex;
+    width: 100%;
+    height: 20%;
+    background: black;
+    align-items: center;
+    justify-content: center;
+}
+form {
+    text-decoration: none;
+    color: white;
+    margin: 0 40px;
+}
+.logo{
+    width: 200px;
+    height: 100%;
+    background: black;
+}
+input[type=submit]{
+    font-family: "Open Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+    border: black;
+    border-radius: 0px;
+    background-color: black;
+    color: whitesmoke;
+    padding: 10px 20px;
+    margin: 5px 3px;
+    cursor: pointer;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 5rem;
+    text-align: center;
+    color: white;
+    background-color: black;
+}
+footer input[type=submit]{
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 700;
+    line-height: 26.4px;
+    border: gray;
+    border-radius: 0px;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    margin: 5px 3px;
+    cursor: pointer;
+}
+.city{
+    padding-top: 50px;
+    text-align: center;
+    font-family: "Open Sans"; 
+    font-size: 45px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 26.4px;
+    padding-bottom: 3px;
+    color: whitesmoke;
+}
+.current{
+    padding-top: 30px;
+    text-align: center;
+    font-family: "Open Sans"; 
+    font-size: 30px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 26.4px;
+    padding-bottom: 7px;
+    color: whitesmoke;
+}
+.high{
+    padding-top: 15px;
+    text-align: center;
+    font-family: "Open Sans"; 
+    font-size: 25px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 15.5px;
+    padding-bottom: 1px;
+    color: whitesmoke;
+}
+.low{
+    padding-top: 5px;
+    text-align: center;
+    font-family: "Open Sans"; 
+    font-size: 25px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 26.4px;
+    padding-bottom: 5px;
+    color: whitesmoke;
+}
+h1 { font-family: "Open Sans"; font-size: 24px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 26.4px; }
+h3 { font-family: "Open Sans"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 700; line-height: 15.4px; }
+p { font-family: "Open Sans"; font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 20px; }
+blockquote { font-family: "Open Sans"; font-size: 21px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 30px; }
+pre { font-family: "Open Sans"; font-size: 13px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 18.5714px; }
+.location{
+    color: whitesmoke;
+    text-align: center;
+    float: inside;
+}
+.fiveday{
+    color:whitesmoke;
+    text-align: center;
+    text-orientation: sideways-left;
+}
+.aboutContact{
+    padding-top: 50px;
+    text-align: center;
+    font-family: "Open Sans"; 
+    font-size: 56px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 26.4px;
+    padding-bottom: 20px;
+    color: whitesmoke;
+}
+.details{
+    color: whitesmoke;
+    text-align: center;
+}
+#mapid{
+    height: 400px;
+    width: 400px;
+    align-content: center;
+}
+.y{
+    
+}
+#clear{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 15%;
+    width: 15%;
+    border-radius: 50%;
+}
+#overcast{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 15%;
+    width: 15%;
+    border-radius: 50%;
+}
+#rain{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 15%;
+    width: 15%;
+    border-radius: 50%;
+}
+.micah{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35%;
+    width: 35%;
+    border-radius: 50%;
+}
+ul{
+    list-style-type: none;
+}
+li{
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    
+}
+#mapid{
+    text-align: center;
+    border: green;
+    border-radius: 5px;
+}
+
+.onoffswitch {
+    position: relative; width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "\2109";
+    padding-left: 10px;
+    background-color: #1B1E1F; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "\2103";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 18px; margin: 6px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 56px;
+    border: 2px solid #999999; border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
