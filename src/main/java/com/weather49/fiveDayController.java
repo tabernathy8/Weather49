@@ -28,8 +28,9 @@ import java.net.*;
 import com.github.prominence.openweathermap.api.model.*;
 
 /**
- *
- * @author Evan
+ * Controller for Five Day Forecast page.
+ * @author Evan Branton
+ * @version 02-25-2020
  */
 @WebServlet(name = "fiveDayController", urlPatterns = {"/forecast"})
 public class fiveDayController extends HttpServlet {

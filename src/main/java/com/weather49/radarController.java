@@ -15,8 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- *
- * @author Evan
+ * Controller for Radar page
+ * @author Evan Branton
+ * @version 02-25-2020
  */
 public class radarController extends HttpServlet {
 

@@ -10,19 +10,19 @@
                 </c:choose>
                 
                 <c:if test="${city == null}">
-                    <form class = "active" method="get" action= "weather"><input type="submit" value = "Home" name="action"><input type="hidden" value="Harrisburg" name="city"/></form>
+                    <form class = "active" method="get" action= "weather"><input type="submit" value = "Home" name="action"><input type="hidden" value="UNCC" name="city"/></form>
                 </c:if>
                 <c:if test="${city != null}">
                         <form class = "active" method="get" action= "weather"><input type="submit" value = "Home" name="action"><input type="hidden" value="${city}" name="city"/></form>
                 </c:if>
                 <c:if test="${city == null}">
-                <form method="get" action="radar"><input type="submit" value = "Radar" name="action"><input type="hidden" value="Harrisburg" name="city"/></form>
+                <form method="get" action="radar"><input type="submit" value = "Radar" name="action"><input type="hidden" value="UNCC" name="city"/></form>
                 </c:if>
                 <c:if test="${city != null}">
                 <form method="get" action="radar"><input type="submit" value = "Radar" name="action"><input type="hidden" value="${city}" name="city"/></form>
                 </c:if>
                 <c:if test="${city == null}">
-                    <form method="get" action="fourday"><input type="submit" value = "4 Day Forecast" name="action"><input type="hidden" value="Harrisburg" name="city"/></form>
+                    <form method="get" action="fourday"><input type="submit" value = "4 Day Forecast" name="action"><input type="hidden" value="UNCC" name="city"/></form>
                 </c:if>
                 <c:if test="${city != null}">
                 <form method="get" action="fourday"><input type="submit" value = "4 Day Forecast" name="action"><input type="hidden" value="${city}" name="city"/></form>

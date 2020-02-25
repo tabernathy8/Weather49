@@ -17,8 +17,9 @@ import javax.servlet.http.HttpSession;
 import com.github.dvdme.ForecastIOLib.*;
 
 /**
- *
- * @author Evan
+ * Controller for Homepage.
+ * @author Evan Branton
+ * @version 02-25-2020
  */
 public class homeController extends HttpServlet {
 

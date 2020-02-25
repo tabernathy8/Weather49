@@ -23,42 +23,67 @@ import net.aksingh.owmjapis.core.OWM;
 
 
 /**
- *
- * @author Evan
+ * WeatherBean class responsible for pulling data from OpenWeatherMap
+ * API and distributing to other classes and pages.
+ * 
+ * @author Evan Branton and Tanner Abernathy
+ * @version 02-25-2020
  */
 public class WeatherBean {
-    OWM owm = new OWM("566c5f6f796270ca04bd8c5031da5847");
-    OWMPro owmp = new OWMPro("566c5f6f796270ca04bd8c5031da5847");
-    CurrentWeather cwd;
-    OpenWeatherMapManager openWeatherManager = new OpenWeatherMapManager("566c5f6f796270ca04bd8c5031da5847");
-    WeatherRequester weatherRequester = openWeatherManager.getWeatherRequester();
-    HourlyForecastRequester forecastRequester = openWeatherManager.getForecastRequester();
-    Weather weatherResponse;
-    HourlyForecast forecastResponse;
-    String location;
-    double high;
-    double low;
-    double current;
-    String country;
-    double locationLat;
-    double locationLng;
+    
+    //Initialize key field
+    private KeyBean keys = new KeyBean("keys.json");
+    private String key = keys.getOWMKey();
+    
+    //Initializing fields
+    private OWM owm = new OWM(key);
+    private OWMPro owmp = new OWMPro(key);
+    private CurrentWeather cwd;
+    private OpenWeatherMapManager openWeatherManager = new OpenWeatherMapManager(key);
+    private WeatherRequester weatherRequester = openWeatherManager.getWeatherRequester();
+    private HourlyForecastRequester forecastRequester = openWeatherManager.getForecastRequester();
+    private Weather weatherResponse;
+    private HourlyForecast forecastResponse;
+    private String location;
+    private double high;
+    private double low;
+    private double current;
+    private String country;
+    private double locationLat;
+    private double locationLng;
     String ex = "";
-    /*List<WeatherData> hwdl;
-    List<ForecastData> dwdl;
-    CurrentWeather cwd;*/
     
-    
-    public WeatherBean(){
+    /**
+     * Default constructor
+     */
+    public WeatherBean()
+    {
     }
-    public String getCity(){
+    
+    /**
+     * Method for returning city string
+     * @return city name
+     */
+    public String getCity()
+    {
         return location;
-        
     }
-    public void setCity(String city){
+    
+    /**
+     * Method for setting city string
+     * @param city name of city
+     */
+    public void setCity(String city)
+    {
         location = city;
     }
-    public double getHigh(){
-        
+    
+    /**
+     * Method for getting high for chosen city
+     * @return high temperature
+     */
+    public double getHigh()
+    {
         try{
             high = weatherResponse.getWeatherInfo().getMaximumTemperature();
             return high;
@@ -67,16 +92,32 @@ public class WeatherBean {
             e.getMessage();
         }
         return -512;
-        
     }
-    public double getCurrentTemp(){
+    
+    /**
+     * Method for getting current temperature for chosen city
+     * @return current temperature of chosen city
+     */
+    public double getCurrentTemp()
+    {
         current = weatherResponse.getWeatherInfo().getTemperature();
         return current;
     }
+    
+    /**
+     * Method for getting current weather for chosen city
+     * @return current weather for chosen city
+     */
     public Weather getCurrentWeather()
     {
         return weatherResponse;
     }
+    
+    /**
+     * method for setting current weather information with coordinates
+     * @param lat latitude for location
+     * @param lng longitude for location
+     */
     public void setCurrentWeather(double lat, double lng)
     {
         try{
@@ -91,67 +132,134 @@ public class WeatherBean {
         }
     }
     
+    /**
+     * Method for getting latitude of chosen location
+     * @return latitude of chosen location
+     */
     public double getLatitude()
     {
         double temp = weatherResponse.getCoordinates().getLatitude();
         return temp; 
         
     }
+    
+    /**
+     * Method for getting longitude of chosen location
+     * @return longitude of chosen location
+     */
     public double getLongitude()
     {
         return weatherResponse.getCoordinates().getLongitude();
     }
+    
+    /**
+     * Method for getting sunrise time for chosen location
+     * @return sunrise time for chosen location
+     */
     public Date getSunRiseTime()
     {
        return weatherResponse.getWeatherSystemInfo().getSunriseDate();
     }
+    
+    /**
+     * Method for getting sunset time for chosen location
+     * @return sunset time for chosen location
+     */
     public Date getSunSetTime()
     {
        return weatherResponse.getWeatherSystemInfo().getSunsetDate();
     }
-    public double getLow(){
+    
+    /**
+     * Method for getting low temperature for chosen location
+     * @return low temperature for chosen location
+     */
+    public double getLow()
+    {
         low = weatherResponse.getWeatherInfo().getMinimumTemperature();
         return low;
     }
-    public String getZipCity(){
+    
+    /**
+     * Method for getting name of currently chosen location
+     * @return city name of chosen location
+     */
+    public String getZipCity()
+    {
         return weatherResponse.getCityName();
     }
-    public Snow getSnow(){
+    
+    /**
+     * method for getting snow information for chosen location
+     * @return snow information for chosen location
+     */
+    public Snow getSnow()
+    {
         return weatherResponse.getSnow();
     }
-    public Rain getRain(){
+    
+    /**
+     * Method for getting rain information for chosen location
+     * @return rain information for chosen location
+     */
+    public Rain getRain()
+    {
         return weatherResponse.getRain();
     }
+    
+    /**
+     * Method for getting wind information for chosen location
+     * @return wind information for chosen location
+     */
     public Wind getWind()
     {
         return weatherResponse.getWind();
     }
+    
+    /**
+     * Method for setting latitude of chosen location
+     * @param lat latitude of chosen location
+     */
     public void setLatitude(double lat)
     {
         locationLat = lat;
     }
+    
+    /**
+     * Method for setting longitude of chosen location
+     * @param lng longitude of chosen location
+     */
     public void setLongitude(double lng)
     {
         locationLng = lng;
     }
-    public void setHourlyForecast(double lat, double lng){
+    
+    /**
+     * Method for setting hourly forecast of chosen location with coordinates
+     * @param lat latitude of chosen location
+     * @param lng longitude of chosen location
+     */
+    public void setHourlyForecast(double lat, double lng)
+    {
         try{
              forecastResponse = forecastRequester
                 .setLanguage(Language.ENGLISH)
                 .setUnitSystem(Unit.IMPERIAL_SYSTEM)
                 .setAccuracy(Accuracy.ACCURATE)
                 .getByCoordinates(lat, lng);
-        }
-        
-        catch(InvalidAuthTokenException e){
+        } catch(InvalidAuthTokenException e) {
             ex = e.toString();
-        }
-        catch(DataNotFoundException e){
+        } catch(DataNotFoundException e) {
             ex = e.toString();
         }
     }
-    public List<HourlyForecast.Forecast> getHourlyForecast(){
-
+    
+    /**
+     * Method for getting hourly forecast of chosen location
+     * @return hourly forecast of chosen location
+     */
+    public List<HourlyForecast.Forecast> getHourlyForecast()
+    {
         if(!(ex.equals("")))
         {
             return null;
@@ -160,8 +268,6 @@ public class WeatherBean {
         {
             return forecastResponse.getForecasts();
         }
-        
-
     }
 }
 
