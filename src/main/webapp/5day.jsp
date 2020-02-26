@@ -4,7 +4,7 @@
     <c:if test = "${cityName != null}">
    <c:if test="${alert.NumberOfAlerts() > 0}">
             <br>
-            <form style ="padding-top: 10px; padding-bottom: 10px; background-color: red; width: 100%; color: black; font-family: Open Sans;"><div>
+            <form style ="padding-top: 10px; padding-bottom: 10px; background-color: red; width: 100%; color: black; font-family: Open Sans; margin: 0%"><div>
             <h1 style = "color: whitesmoke; text-align: center;">Special Weather Alert</h1>
             <c:forEach var = "i" begin = "0" end = "${alert.NumberOfAlerts() - 1}">
                 <center>
@@ -14,7 +14,7 @@
                     
             </c:forEach>
             <center><input style ="align-content: center; background-color: red;" type = "submit" value = "Click here to see more on the Alert(s)" name = "alert" ></center><input type="hidden" value = "alerts" name = "action"></div></form>
-    </c:if> 
+        </c:if>
     </c:if>
     <h1 class = "fiveday">Weather Over the Next Four Days in ${cityName}</h1>
     <ul>

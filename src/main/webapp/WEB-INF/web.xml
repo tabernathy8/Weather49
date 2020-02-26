@@ -18,8 +18,9 @@
         <load-on-startup>2</load-on-startup>
     </servlet>
     <servlet>
-        <servlet-name>docs</servlet-name>
-        <jsp-file>/index.html</jsp-file>
+        <servlet-name>javadocs</servlet-name>
+        <jsp-file>/javadocs.html</jsp-file>
+        <load-on-startup>3</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>homeController</servlet-name>
@@ -34,8 +35,8 @@
         <url-pattern>/radar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>docs</servlet-name>
-        <url-pattern>/docs</url-pattern>
+        <servlet-name>javadocs</servlet-name>
+        <url-pattern>/javadocs</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

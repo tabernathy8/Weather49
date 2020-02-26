@@ -4,7 +4,7 @@
     <c:if test ="${cityName != null}">
         <c:if test="${alert.NumberOfAlerts() > 0}">
             <br>
-            <form style ="padding-top: 10px; padding-bottom: 10px; background-color: red; width: 100%; color: black; font-family: Open Sans;"><div>
+            <form style ="padding-top: 10px; padding-bottom: 10px; background-color: red; width: 100%; color: black; font-family: Open Sans; margin: 0%"><div>
             <h1 style = "color: whitesmoke; text-align: center;">Special Weather Alert</h1>
             <c:forEach var = "i" begin = "0" end = "${alert.NumberOfAlerts() - 1}">
                 <center>
