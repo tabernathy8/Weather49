@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mycompany</groupId>
-    <artifactId>Weather49</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <artifactId>Weather49.mobile</artifactId>
+    <version>0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>Weather49</name>
+    <name>Weather49-Mobile</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>

@@ -2,6 +2,7 @@
         <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
         <html lang="en">
         <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
             <meta charset="UTF-8">
             <link rel= "stylesheet" type="text/css" href="style/weather49.css">
             <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />

@@ -4,17 +4,17 @@
 <c:if test = "${cityName != null}">
    <c:if test="${alert.NumberOfAlerts() > 0}">
             <br>
-            <form style ="padding-top: 10px; padding-bottom: 10px; background-color: red; width: 100%; color: black; font-family: Open Sans;"><div>
-            <h1 style = "color: whitesmoke; text-align: center;">Special Weather Alert</h1>
+            <form style ="padding-top: 10px; padding-bottom: 10px; background-color: red; margin: 10px; color: black; font-family: Open Sans;"><div>
+            <h1 style = "color: whitesmoke; text-align: center; padding-right: 3px; padding-left: 3px">Special Weather Alert</h1>
             <c:forEach var = "i" begin = "0" end = "${alert.NumberOfAlerts() - 1}">
                 <center>
-                    <p style="color: whitesmoke;">A ${alert.getAlertTitle(i)} begins at ${alert.getAlertTime(i)} and  will expires at ${alert.getAlertExpireTime(i)}</p>
+                    <p style="color: whitesmoke; padding-right: 10px; padding-left: 10px">A ${alert.getAlertTitle(i)} begins at ${alert.getAlertTime(i)} and  will expire at ${alert.getAlertExpireTime(i)}</p>
                 </center>
                 <br>
                     
             </c:forEach>
-            <center><input style ="align-content: center; background-color: red;" type = "submit" value = "Click here to see more on the Alert(s)" name = "alert" ></center><input type="hidden" value = "alerts" name = "action"></div></form>
-    </c:if> 
+            <center><input style ="align-content: center; background-color: red; width: 95%; font-size: 20px; padding-left: 10px; padding-right: 10px" type = "submit" value = "Click Here to See More" name = "alert" ></center><input type="hidden" value = "alerts" name = "action"></div></form>
+        </c:if>
 </c:if>
 <div class="details">
     <h1 style="font-size: 50px">${cityName}</h1>
