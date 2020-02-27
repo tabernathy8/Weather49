@@ -39,6 +39,21 @@
         background-color: #4CAF50;
         color: white;
     }
+    
+    ::placeholder {
+        color: white;
+        opacity: 1;
+    }
+
+    :-ms-input-placeholder {
+        color: white;
+        opacity: 1;
+    }
+
+    ::-ms-input-placeholder {
+        color: white;
+        opacity: 1;
+    }
 </style>
 
 
@@ -80,10 +95,10 @@
 
         <c:choose>
             <c:when test = "${act == null}">
-                <form style ="padding: 3px 3px; display: block; width: 100%; text-align: right; margin-left: 0px;" class = "right" method = "get" action="weather" style="padding-top: 15px;"><input style = "padding-top: 15px; padding-bottom: 15px; border-style: none; background-color: black; color: white; border-color: white; margin-right: 20px" type="text" name="city" placeholder = "Please Enter a Location"><input type="hidden" value="${action}" name="action"></form>
+                <form style ="padding: 11px 11px; display: block; width: 100%; text-align: right; margin-left: 0px;" class = "right" method = "get" action="weather" style="padding-top: 15px; background-color: #101010"><input style = "padding: 7px 7px; border-style: ridge; background-color: black; color: white; border-color: #303030; margin-right: 26px" type="text" name="city" placeholder = "Please Enter a Location"><input type="hidden" value="${action}" name="action"></form>
                 </c:when>
                 <c:otherwise>
-                <form style ="padding: 3px 3px; display: block; width: 100%; text-align: right; margin-left: 0px;" class = "right" method = "get" action="${act}" style="padding-top: 15px;"><input style = "padding-top: 15px; padding-bottom: 15px; border-style: none; background-color: black; color: white; border-color: white; margin-right: 20px" type="text" name="city" placeholder = "Please Enter a Location"><input type="hidden" value="${action}" name="action"></form>
+                <form style ="padding: 11px 11px; display: block; width: 100%; text-align: right; margin-left: 0px;" class = "right" method = "get" action="${act}" style="padding-top: 15px; background-color: #101010"><input style = "padding: 7px 7px; border-style: ridge; background-color: black; color: white; border-color: #303030; margin-right: 26px" type="text" name="city" placeholder = "Please Enter a Location"><input type="hidden" value="${action}" name="action"></form>
                 </c:otherwise>
             </c:choose>
     </div>
