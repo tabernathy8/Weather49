@@ -115,11 +115,15 @@ public class fiveDayController extends HttpServlet {
             }
             ab.setForecast(latLng[0], latLng[1]);
             ab.setAlert();
+            String cityName = (lb.getCityOnly());
+            //String cityName = (wd.getCurrentWeather().getCityName());
+            String fullName = lb.getCity();
             FIOAlerts alert = ab.getAlert();
             session.setAttribute("abean", ab);
             session.setAttribute("alert", alert);
             session.setAttribute("x", x);
-            session.setAttribute("cityName" ,wd.getCurrentWeather().getCityName());
+            session.setAttribute("wd", wd);
+            session.setAttribute("cityName" , cityName);
             session.setAttribute("city", request.getParameter("city"));
             session.setAttribute("highTemps", highTemps);
             session.setAttribute("lowTemps", lowTemps);

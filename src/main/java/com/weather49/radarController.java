@@ -73,8 +73,12 @@ public class radarController extends HttpServlet {
         session.setAttribute("action", action);
         if(action.equals("Radar"))
         {
+            
+            String cityName = (lb.getCityOnly());
+            //String cityName = (wd.getCurrentWeather().getCityName());
+            String fullName = lb.getCity();
             session.setAttribute("city",request.getParameter("city"));
-            session.setAttribute("cityName", wd.getCurrentWeather().getCityName());
+            session.setAttribute("cityName", cityName);
             session.setAttribute("lat", wd.getLatitude());
             session.setAttribute("lng",wd.getLongitude());
             getServletContext()

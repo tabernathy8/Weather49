@@ -61,7 +61,7 @@
     <c:forEach var = "i" begin = "0" end = "3">
         <hr style ="width:80%;">
         <li class = "fiveday" style = "width: 100%;">
-            <p class = "y" style = "font-size: 30px; margin-top: 8px;">${x.get(i).getDt_txt().substring(0,10)}</p>
+            <p class = "y" style = "font-size: 30px; margin-top: 8px;">${wd.corDate(x.get(i).getDt_txt().substring(0,10))}</p>
             <div class="row">
 
                 <c:if test = "${x.get(i).getWeatherStates().get(0).getWeatherGroup().equals('Clouds')}">

@@ -23,7 +23,7 @@
                 </c:if>
         
         
-    <h1 class = "city">${cityName}</h1>
+    <h1 class = "city" style = "line-height: normal; margin: 10px 10px;">${fullName}</h1>
     <h2 class="current" style="font-size: 130px;padding-top: 5px;margin-bottom: 40px;margin-top: 0px;"><br>${current}<sup><sup><temp>&#xb0</>F</temp></sup></sup></h2>
     <h3 class = "high">${high}<sup>&#xb0</sup> / ${low}<sup>&#xb0</sup></h3>
     

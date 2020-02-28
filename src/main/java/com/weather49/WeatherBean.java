@@ -235,6 +235,21 @@ public class WeatherBean {
     }
     
     /**
+     * Method for converting YMD date format to MDY date format
+     * @param old YMD formatted date
+     * @return MDY formatted date
+     */
+    public String corDate(String old)
+    {
+        String year = old.substring(0, 4);
+        String month = old.substring(5, 7);
+        String day = old.substring(8);
+        
+        return (month + "-" + day + "-" + year);
+        
+    }
+    
+    /**
      * Method for setting hourly forecast of chosen location with coordinates
      * @param lat latitude of chosen location
      * @param lng longitude of chosen location
