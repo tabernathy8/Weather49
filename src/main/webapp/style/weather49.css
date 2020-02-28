@@ -150,7 +150,7 @@ footer input[type=submit]{
     cursor: pointer;
 }
 .city{
-    padding-top: 50px;
+    padding-top: 0px;
     text-align: center;
     font-family: "Open Sans"; 
     font-size: 45px; 

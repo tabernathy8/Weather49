@@ -25,7 +25,7 @@
         color: white;
         display: block;
         position: absolute;
-        right: 0;
+        left: 0;
         top: 0;
         margin: 0px;
     }
@@ -73,43 +73,38 @@
     <div id="links">
 
         <c:if test="${city == null}">
-            <form style ="padding: 3px 3px; display: block; width: 100%; text-align: right; margin-left: 0px;" class = "active" method="get" action= "weather"><input type="submit" value = "Home" name="action"><input type="hidden" value="UNCC" name="city"/></form>
+            <form style ="padding: 3px 3px; display: block; width: 100%; text-align: left; margin-left: 0px;" class = "active" method="get" action= "weather"><input type="submit" value = "Home" name="action"><input type="hidden" value="UNCC" name="city"/></form>
             </c:if>
             <c:if test="${city != null}">
-            <form style ="padding: 3px 3px; display: block; width: 100%; text-align: right; margin-left: 0px;" class = "active" method="get" action= "weather"><input type="submit" value = "Home" name="action"><input type="hidden" value="${city}" name="city"/></form>
+            <form style ="padding: 3px 3px; display: block; width: 100%; text-align: left; margin-left: 0px;" class = "active" method="get" action= "weather"><input type="submit" value = "Home" name="action"><input type="hidden" value="${city}" name="city"/></form>
             </c:if>
 
         <c:if test="${city == null}">
-            <form style ="padding: 3px 3px; display: block; width: 100%; text-align: right; margin-left: 0px;" method="get" action="radar"><input type="submit" value = "Radar" name="action"><input type="hidden" value="UNCC" name="city"/></form>
+            <form style ="padding: 3px 3px; display: block; width: 100%; text-align: left; margin-left: 0px;" method="get" action="radar"><input type="submit" value = "Radar" name="action"><input type="hidden" value="UNCC" name="city"/></form>
             </c:if>
             <c:if test="${city != null}">
-            <form style ="padding: 3px 3px; display: block; width: 100%; text-align: right; margin-left: 0px;" method="get" action="radar"><input type="submit" value = "Radar" name="action"><input type="hidden" value="${city}" name="city"/></form>
+            <form style ="padding: 3px 3px; display: block; width: 100%; text-align: left; margin-left: 0px;" method="get" action="radar"><input type="submit" value = "Radar" name="action"><input type="hidden" value="${city}" name="city"/></form>
             </c:if>
 
         <c:if test="${city == null}">
-            <form style ="padding: 3px 3px; display: block; width: 100%; text-align: right; margin-left: 0px;" method="get" action="fourday"><input type="submit" value = "4 Day Forecast" name="action"><input type="hidden" value="UNCC" name="city"/></form>
+            <form style ="padding: 3px 3px; display: block; width: 100%; text-align: left; margin-left: 0px;" method="get" action="fourday"><input type="submit" value = "4 Day Forecast" name="action"><input type="hidden" value="UNCC" name="city"/></form>
             </c:if>
             <c:if test="${city != null}">
-            <form style ="padding: 3px 3px; display: block; width: 100%; text-align: right; margin-left: 0px;" method="get" action="fourday"><input type="submit" value = "4 Day Forecast" name="action"><input type="hidden" value="${city}" name="city"/></form>
+            <form style ="padding: 3px 3px; display: block; width: 100%; text-align: left; margin-left: 0px;" method="get" action="fourday"><input type="submit" value = "4 Day Forecast" name="action"><input type="hidden" value="${city}" name="city"/></form>
             </c:if>
 
         <c:choose>
             <c:when test = "${act == null}">
-                <form style ="padding: 11px 11px; display: block; width: 100%; text-align: right; margin-left: 0px;" class = "right" method = "get" action="weather" style="padding-top: 15px; background-color: #101010"><input style = "padding: 7px 7px; border-style: ridge; background-color: black; color: white; border-color: #303030; margin-right: 26px" type="text" name="city" placeholder = "Please Enter a Location"><input type="hidden" value="${action}" name="action"></form>
+                <form style ="padding: 11px 11px; display: block; width: 100%; text-align: left; margin-left: 10px;" class = "right" method = "get" action="weather" style="padding-top: 15px; background-color: #101010"><input style = "padding: 7px 7px; border-style: ridge; background-color: black; color: white; border-color: #303030; margin-right: 26px" type="text" name="city" placeholder = "Please Enter a Location"><input type="hidden" value="${action}" name="action"></form>
                 </c:when>
                 <c:otherwise>
-                <form style ="padding: 11px 11px; display: block; width: 100%; text-align: right; margin-left: 0px;" class = "right" method = "get" action="${act}" style="padding-top: 15px; background-color: #101010"><input style = "padding: 7px 7px; border-style: ridge; background-color: black; color: white; border-color: #303030; margin-right: 26px" type="text" name="city" placeholder = "Please Enter a Location"><input type="hidden" value="${action}" name="action"></form>
+                <form style ="padding: 11px 11px; display: block; width: 100%; text-align: left; margin-left: 10px;" class = "right" method = "get" action="${act}" style="padding-top: 15px; background-color: #101010"><input style = "padding: 7px 7px; border-style: ridge; background-color: black; color: white; border-color: #303030; margin-right: 26px" type="text" name="city" placeholder = "Please Enter a Location"><input type="hidden" value="${action}" name="action"></form>
                 </c:otherwise>
             </c:choose>
     </div>
 
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class=""fa fa-bars"></i>
-    </a>
-
-
     <form onclick ="navFunction()" action="javascript:void(0);" class="icon">
-        <i class="fa fa-bars"></i>
+        <i class="fa fa-bars" style="font-size: 35px;"></i>
     </form>
 
 
@@ -122,6 +117,7 @@
             x.style.display = "none";
         } else {
             x.style.display = "inline-block";
+            x.style.width = "100%";
         }
     }
 </script>
