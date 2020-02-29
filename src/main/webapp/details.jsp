@@ -17,7 +17,7 @@
         </c:if>
 </c:if>
 <div class="details">
-    <h1 style="font-size: 50px">${cityName}</h1>
+    <h1 style="font-size: 50px; line-height: normal">${cityName}</h1>
     <p>Current Temperature: ${current}&#8457</p>
     <p>High: ${high}&#8457</p>
     <p>Low: ${low}&#8457</p>

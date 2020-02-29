@@ -39,6 +39,7 @@ public class homeController extends HttpServlet {
         WeatherBean wd = new WeatherBean();
         
         String city;
+        String laLn;
         double high;
         double low;
         double current;
@@ -46,6 +47,7 @@ public class homeController extends HttpServlet {
         System.out.println(action);
         String invalid = "false";
         city = request.getParameter("city");
+        laLn = request.getParameter("coords");
         LocationBean lb = new LocationBean(city);
         lb.setLocation(city);
         AlertsBean ab = new AlertsBean();
@@ -99,6 +101,7 @@ public class homeController extends HttpServlet {
             String a = (String) session.getAttribute("city");
             System.out.println(a);
             double[] latLng = lb.getResults();
+            
             wd.setCurrentWeather(latLng[0],latLng[1]);
             
             ab.setForecast(latLng[0], latLng[1]);

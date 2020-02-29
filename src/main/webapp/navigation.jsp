@@ -39,7 +39,7 @@
         background-color: #4CAF50;
         color: white;
     }
-    
+
     ::placeholder {
         color: white;
         opacity: 1;
@@ -55,6 +55,10 @@
         opacity: 1;
     }
 </style>
+
+
+
+
 
 
 <div class ="topnav" id = "myTopnav">
@@ -92,15 +96,33 @@
             <c:if test="${city != null}">
             <form style ="padding: 3px 3px; display: block; width: 100%; text-align: left; margin-left: 0px;" method="get" action="fourday"><input type="submit" value = "4 Day Forecast" name="action"><input type="hidden" value="${city}" name="city"/></form>
             </c:if>
-
-        <c:choose>
-            <c:when test = "${act == null}">
-                <form style ="padding: 11px 11px; display: block; width: 100%; text-align: left; margin-left: 10px;" class = "right" method = "get" action="weather" style="padding-top: 15px; background-color: #101010"><input style = "padding: 7px 7px; border-style: ridge; background-color: black; color: white; border-color: #303030; margin-right: 26px" type="text" name="city" placeholder = "Please Enter a Location"><input type="hidden" value="${action}" name="action"></form>
+        <div style="padding: 11px 11px;display: inline-block;width: 100%;text-align: left;margin-left: 10px;">
+            <c:choose>
+                <c:when test = "${act == null}">
+                    <form style ="padding: 0px 0px; display: inline-block; margin-right: 0px; margin-left: 0px;" class = "right" method = "get" action="weather" style="padding-top: 15px; background-color: #101010">
+                        <input style = "padding: 7px 7px; border-style: ridge; background-color: black; color: white; border-color: #303030;" type="text" name="city" placeholder = "Please Enter a Location">
+                        <input type="hidden" value="${action}" name ="action">    
+                    </form>
+                    <form id="geo" class="right" method="get" action="weather" style="display: inline-block; margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;">
+                        <img src="media/loc.png" onclick="getLocation()" alt="Locate" width="25" height="25" style="display: inline-block;position: absolute;padding-top: 4px;padding-left: 4px;">
+                        <input type="hidden" value="" name="city" id="city">
+                        <input type="hidden" value="${action}" name ="action">
+                    </form>
                 </c:when>
                 <c:otherwise>
-                <form style ="padding: 11px 11px; display: block; width: 100%; text-align: left; margin-left: 10px;" class = "right" method = "get" action="${act}" style="padding-top: 15px; background-color: #101010"><input style = "padding: 7px 7px; border-style: ridge; background-color: black; color: white; border-color: #303030; margin-right: 26px" type="text" name="city" placeholder = "Please Enter a Location"><input type="hidden" value="${action}" name="action"></form>
+                    <form style ="padding: 0px 0px; display: inline-block; margin-right: 0px; margin-left: 0px;" class = "right" method = "get" action="${act}" style="padding-top: 15px; background-color: #101010">
+                        <input style = "padding: 7px 7px; border-style: ridge; background-color: black; color: white; border-color: #303030;" type="text" name="city" placeholder = "Please Enter a Location">
+                        <input type="hidden" value="${action}" name ="action">
+                    </form>
+                    <form id="geo" class="right" method="get" action="${act}" style="display: inline-block; margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;">
+                        <img src="media/loc.png" onclick="getLocation()" alt="Locate" width="25" height="25" style="display: inline-block;position: absolute;padding-top: 4px;padding-left: 4px;">
+                        <input type="hidden" value="" name="city" id="city">
+                        <input type="hidden" value="${action}" name ="action">
+                        
+                    </form>
                 </c:otherwise>
             </c:choose>
+        </div>
     </div>
 
     <form onclick ="navFunction()" action="javascript:void(0);" class="icon">
@@ -109,7 +131,6 @@
 
 
 </div>
-
 <script>
     function navFunction() {
         var x = document.getElementById("links");
@@ -119,6 +140,71 @@
             x.style.display = "inline-block";
             x.style.width = "100%";
         }
+    }
+    var pStart = {x: 0, y: 0};
+    var pStop = {x: 0, y: 0};
+
+    function swipeStart(e) {
+        if (typeof e['targetTouches'] !== "undefined") {
+            var touch = e.targetTouches[0];
+            pStart.x = touch.screenX;
+            pStart.y = touch.screenY;
+        } else {
+            pStart.x = e.screenX;
+            pStart.y = e.screenY;
+        }
+    }
+
+    function swipeEnd(e) {
+        if (typeof e['changedTouches'] !== "undefined") {
+            var touch = e.changedTouches[0];
+            pStop.x = touch.screenX;
+            pStop.y = touch.screenY;
+        } else {
+            pStop.x = e.screenX;
+            pStop.y = e.screenY;
+        }
+
+        swipeCheck();
+    }
+
+    function swipeCheck() {
+        var changeY = pStart.y - pStop.y;
+        var changeX = pStart.x - pStop.x;
+        if (isPullDown(changeY, changeX)) {
+            location.reload();
+        }
+    }
+
+    function isPullDown(dY, dX) {
+        // methods of checking slope, length, direction of line created by swipe action 
+        return dY < 0 && (
+                (Math.abs(dX) <= 100 && Math.abs(dY) >= 300)
+                || (Math.abs(dX) / Math.abs(dY) <= 0.3 && dY >= 60)
+                );
+    }
+
+    document.addEventListener('touchstart', function (e) {
+        swipeStart(e);
+    }, false);
+
+    document.addEventListener('touchend', function (e) {
+        swipeEnd(e);
+    }, false);
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(sendPosition);
+        } else
+        {
+            alert("Location could not be found!");
+        }
+    }
+
+    function sendPosition(position) {
+        document.getElementById("city").setAttribute('value', (position.coords.latitude + " " + position.coords.longitude));
+        
+        document.getElementById("geo").submit();
     }
 </script>
 

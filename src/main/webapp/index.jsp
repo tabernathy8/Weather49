@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
+    <style>
+        .loader {
+            border: 10px solid #f3f3f3; /* Light Gray */
+            border-top: 10px solid #303030; /* Dark Gray */
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+
     <head>
         <c:choose>
             <c:when test="${city == null}">
@@ -36,7 +52,11 @@
 
     <jsp:include page="navigation.jsp"/>
     <body>
-        <h1 class = "city" style = "line-height: normal; margin: 150px 10px; font-style: italic">Loading...</h1>
-    </body>
+    <center>
+        <div class="loader" style="margin: 100px"/>
+    </center>
 
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+</body>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
