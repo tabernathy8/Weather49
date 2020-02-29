@@ -74,7 +74,7 @@ public class radarController extends HttpServlet {
         if(action.equals("Radar"))
         {
             session.setAttribute("city",request.getParameter("city"));
-            session.setAttribute("cityName", wd.getCurrentWeather().getCityName());
+            session.setAttribute("cityName",lb.getCityOnly());
             session.setAttribute("lat", wd.getLatitude());
             session.setAttribute("lng",wd.getLongitude());
             getServletContext()

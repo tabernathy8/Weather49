@@ -119,7 +119,7 @@ public class fiveDayController extends HttpServlet {
             session.setAttribute("abean", ab);
             session.setAttribute("alert", alert);
             session.setAttribute("x", x);
-            session.setAttribute("cityName" ,wd.getCurrentWeather().getCityName());
+            session.setAttribute("cityName" ,lb.getCityOnly());
             session.setAttribute("city", request.getParameter("city"));
             session.setAttribute("highTemps", highTemps);
             session.setAttribute("lowTemps", lowTemps);

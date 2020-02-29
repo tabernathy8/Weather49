@@ -147,7 +147,9 @@ public class homeController extends HttpServlet {
             current = Math.round(current);
             int intCur = (int) current;
             session.setAttribute("current", intCur);
-            String cityName = (wd.getCurrentWeather().getCityName());
+            //  String cityName = (wd.getCurrentWeather().getCityName());
+            String cityName = (lb.getCityOnly());
+            String fullName = (lb.getCity());
             Snow snowInfo = wd.getSnow();
             Rain rainInfo = wd.getRain();
             Wind windInfo = wd.getWind();
@@ -155,6 +157,7 @@ public class homeController extends HttpServlet {
             session.setAttribute("weather", wd.getCurrentWeather().getWeatherStates().get(0).getWeatherGroup());
             session.setAttribute("weatherDescription", wd.getCurrentWeather().getWeatherStates().get(0).getDescription());
             session.setAttribute("cityName", cityName);
+            session.setAttribute("fullName", fullName);
             session.setAttribute("city", request.getParameter("city"));
             session.setAttribute("sunUp", wd.getSunRiseTime());
             session.setAttribute("sunDown", wd.getSunSetTime());

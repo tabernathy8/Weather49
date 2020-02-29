@@ -38,7 +38,7 @@
         
         
         
-    <h1 class = "city" style = "font-size: 60px; margin-top: 0px;">${cityName}</h1>
+    <h1 class = "city" style = "font-size: 60px; margin-top: 0px; line-height: normal; width: 45%; text-align: center; margin-left: auto; margin-right: auto">${fullName}</h1>
     
     <div class="row">
         <div class="column">
