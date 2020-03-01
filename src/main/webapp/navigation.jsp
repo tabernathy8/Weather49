@@ -54,6 +54,21 @@
         color: white;
         opacity: 1;
     }
+
+
+    .locLoader {
+        border: 6px solid #f3f3f3; /* Light Gray */
+        border-top: 6px solid #303030; /* Dark Gray */
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
 </style>
 
 
@@ -108,26 +123,27 @@
                         <input type="hidden" value="" name="city" id="city">
                         <input type="hidden" value="${action}" name ="action">
                     </form>
+                    <div id="loadLoc" class="locLoader" style="margin: 2px 0px 0px 35px; display:none"/></div>
                 </c:when>
                 <c:otherwise>
-                    <form style ="padding: 0px 0px; display: inline-block; margin-right: 0px; margin-left: 0px;" class = "right" method = "get" action="${act}" style="padding-top: 15px; background-color: #101010">
-                        <input style = "padding: 7px 7px; border-style: ridge; background-color: black; color: white; border-color: #303030;" type="text" name="city" placeholder = "Please Enter a Location">
-                        <input type="hidden" value="${action}" name ="action">
-                    </form>
-                    <form id="geo" class="right" method="get" action="${act}" style="display: inline-block; margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;">
-                        <img src="media/loc.png" onclick="getLocation()" alt="Locate" width="25" height="25" style="display: inline-block;position: absolute;padding-top: 4px;padding-left: 4px;">
-                        <input type="hidden" value="" name="city" id="city">
-                        <input type="hidden" value="${action}" name ="action">
-                        
-                    </form>
-                </c:otherwise>
-            </c:choose>
-        </div>
-    </div>
+                <form style ="padding: 0px 0px; display: inline-block; margin-right: 0px; margin-left: 0px;" class = "right" method = "get" action="${act}" style="padding-top: 15px; background-color: #101010">
+                    <input style = "padding: 7px 7px; border-style: ridge; background-color: black; color: white; border-color: #303030;" type="text" name="city" placeholder = "Please Enter a Location">
+                    <input type="hidden" value="${action}" name ="action">
+                </form>
+                <form id="geo" class="right" method="get" action="${act}" style="display: inline-block; margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px;">
+                    <img src="media/loc.png" onclick="getLocation()" alt="Locate" width="25" height="25" style="display: inline-block;position: absolute;padding-top: 4px;padding-left: 4px;">
+                    <input type="hidden" value="" name="city" id="city">
+                    <input type="hidden" value="${action}" name ="action">                 
+                </form>
+                <div id="loadLoc" class="locLoader" style="margin: 2px 0px 0px 35px; display:none"/></div> 
+            </c:otherwise>
+        </c:choose>
+</div>
+</div>
 
-    <form onclick ="navFunction()" action="javascript:void(0);" class="icon">
-        <i class="fa fa-bars" style="font-size: 35px;"></i>
-    </form>
+<form onclick ="navFunction()" action="javascript:void(0);" class="icon">
+    <i class="fa fa-bars" style="font-size: 35px;"></i>
+</form>
 
 
 </div>
@@ -193,17 +209,21 @@
     }, false);
 
     function getLocation() {
+        var x = document.getElementById("loadLoc");
+        x.style.display = "inline-block";
+        
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(sendPosition);
         } else
         {
             alert("Location could not be found!");
+            x.style.display = "none";
         }
     }
 
     function sendPosition(position) {
         document.getElementById("city").setAttribute('value', (position.coords.latitude + " " + position.coords.longitude));
-        
+
         document.getElementById("geo").submit();
     }
 </script>
